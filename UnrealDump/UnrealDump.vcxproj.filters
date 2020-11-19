@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="引擎">
+      <UniqueIdentifier>{a2e7f325-1f1c-4353-aad3-48d07e5660f2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="引擎\GNames">
+      <UniqueIdentifier>{7bafdf5b-b5b5-4bc8-913f-57d61c75dd6b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="引擎\GObject">
+      <UniqueIdentifier>{77fb8adc-096e-4137-8e3d-6b337baad3b2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="引擎\Flags">
+      <UniqueIdentifier>{ebbfe178-cb43-43bb-8882-b4f33f8627c9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="引擎\Misc">
+      <UniqueIdentifier>{733cff4d-175c-4b16-b76d-ff3ad183eef4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="引擎\Package">
+      <UniqueIdentifier>{8f262793-34c4-4b4b-9031-460c62cdfd34}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="UnrealDump.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Process.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="NameStore.cpp">
+      <Filter>引擎\GNames</Filter>
+    </ClCompile>
+    <ClCompile Include="ObjectsStore.cpp">
+      <Filter>引擎\GObject</Filter>
+    </ClCompile>
+    <ClCompile Include="GenericTypes.cpp">
+      <Filter>引擎</Filter>
+    </ClCompile>
+    <ClCompile Include="PropertyFlags.cpp">
+      <Filter>引擎\Flags</Filter>
+    </ClCompile>
+    <ClCompile Include="FunctionFlags.cpp">
+      <Filter>引擎\Flags</Filter>
+    </ClCompile>
+    <ClCompile Include="NameValidator.cpp">
+      <Filter>引擎\Misc</Filter>
+    </ClCompile>
+    <ClCompile Include="Package.cpp">
+      <Filter>引擎\Package</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="pch.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineClass.h">
+      <Filter>引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="NameStore.h">
+      <Filter>引擎\GNames</Filter>
+    </ClInclude>
+    <ClInclude Include="ObjectsStore.h">
+      <Filter>引擎\GObject</Filter>
+    </ClInclude>
+    <ClInclude Include="PropertyFlags.hpp">
+      <Filter>引擎\Flags</Filter>
+    </ClInclude>
+    <ClInclude Include="FunctionFlags.hpp">
+      <Filter>引擎\Flags</Filter>
+    </ClInclude>
+    <ClInclude Include="defs.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="SmartPtr.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Process.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Offset.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="NameValidator.hpp">
+      <Filter>引擎\Misc</Filter>
+    </ClInclude>
+    <ClInclude Include="GenericTypes.hpp">
+      <Filter>引擎</Filter>
+    </ClInclude>
+    <ClInclude Include="Package.h">
+      <Filter>引擎\Package</Filter>
+    </ClInclude>
+    <ClInclude Include="Generator.hpp">
+      <Filter>引擎</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
