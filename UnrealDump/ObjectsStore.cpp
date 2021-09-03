@@ -3,12 +3,8 @@
 class FUObjectItem
 {
 public:
-	uint64_t N000001AE; //0x0000
-	class UObject* Object; //0x0008
-	uint64_t Flags; //0x0010
-	uint64_t ClusterIndex; //0x0018
-	uint64_t SerialNumber; //0x0020
-	char pad_0028[8]; //0x0028
+	class UObject* Object; //0x0000
+	char pad_0008[16]; //0x0008
 };
 
 class TUObjectArray
@@ -16,7 +12,9 @@ class TUObjectArray
 public:
 	char pad_0000[8]; //0x0000
 	SmartPtr< class FUObjectItem> Objects; //0x0008
-	uint64_t NumElements; //0x0010
+	uint32_t MaxElements; //0x0010
+	uint32_t NumElements; //0x0014
+
 };
 
 class FUObjectArray
@@ -29,18 +27,6 @@ public:
 
 	TUObjectArray ObjObjects; //0x0010
 
-	TUObjectArray GetObjObjects()
-	{
-
-
-
-		TUObjectArray t;
-		t = ObjObjects;
-		
-		t.Objects = (FUObjectItem*)Process::XeDecryption((ULONG64)ObjObjects.Objects.GetPtr());
-		t.NumElements = Process::XeDecryption(ObjObjects.NumElements);
-		return t;
-	}
 };
 class FUObjectArray GlobalObjects;
 ObjectsStore::ObjectsStore()
@@ -61,7 +47,7 @@ ObjectsStore& ObjectsStore::GetReference()
 
 size_t ObjectsStore::GetObjectsNum()const
 {
-	static auto NumElements = GlobalObjects.GetObjObjects().NumElements;
+	static auto NumElements = GlobalObjects.ObjObjects.NumElements;
 	return NumElements;
 }
 
@@ -72,7 +58,7 @@ SmartPtr<UObject> ObjectsStore::GetSmartById(size_t id) const
 
 UEObject ObjectsStore::GetById(size_t id) const
 {
-	static auto obj = GlobalObjects.GetObjObjects().Objects;
+	static auto obj = GlobalObjects.ObjObjects.Objects;
 	return obj[id].Object;
 }
 

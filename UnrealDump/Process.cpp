@@ -84,7 +84,7 @@ DWORD_PTR Process::XeDecryption(DWORD_PTR p)
 		static uint64_t Ptr = 0;
 		if (DecFunction == nullptr)
 		{
-			int64_t DecryptPtr = Read<uint64_t>((DWORD_PTR)GetBaseModule() + (int)GameInst::XeDecryption);
+			int64_t DecryptPtr = 0;//Read<uint64_t>((DWORD_PTR)GetBaseModule() + (int)GameInst::XeDecryption);
 			int32_t Tmp1Add = Read<uint32_t>(DecryptPtr + 3);
 			Ptr = Tmp1Add + DecryptPtr + 7;
 			unsigned char ShellcodeBuff[1024] = { NULL };

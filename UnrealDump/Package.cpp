@@ -4,12 +4,12 @@
 #include "ObjectsStore.h"
 #include "NameValidator.hpp"
 #include "Generator.hpp"
-std::ofstream osStructs("PUBG_structs.hpp");
-std::ofstream osClass("PUBG_classes.hpp");
-std::ofstream osEnum("PUBG_Enum.hpp");
-std::ofstream osFunction("PUBG_Function.hpp");
-std::ofstream osAll("PUBG_All.hpp");
-std::ofstream osOffset("PUBG_Offset.hpp");
+std::ofstream osStructs("shabi_structs.hpp");
+std::ofstream osClass("shabi_classes.hpp");
+std::ofstream osEnum("shabi_Enum.hpp");
+std::ofstream osFunction("shabi_Function.hpp");
+std::ofstream osAll("shabi_All.hpp");
+std::ofstream osOffset("shabi_Offset.hpp");
 
 
 Package::Package(const UEObject& _packageObj)

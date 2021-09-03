@@ -189,13 +189,14 @@ class UObject
 {
 public:
 	VOID* vtf;
-	char pad_0008[24]; //0x0008
-	int64_t Class; //0x0020
-	int32_t Index; //0x0028
-	char pad_002C[4]; //0x002C
-	int64_t Outer; //0x0030
-	int32_t ID; //0x0038
-	char pad_003C[4]; //0x003C
+	char pad_0008[4]; //0x0008
+	int32_t Index; //0x000C
+	class UObject* Class; //0x0010
+	int32_t ID; //0x0018
+	char pad_001C[4]; //0x001C
+	class UObject* Outer; //0x0020
+	char pad_0028[120]; //0x0028
+
 
 
 
@@ -221,15 +222,12 @@ public:
 class UStruct : public UField
 {
 public:
-	char pad_0048[12]; //0x0048
-	uint32_t MinAlignment; //0x0054
-	char pad_0058[8]; //0x0058
-	class UField* SueprField; //0x0060
-	char pad_0068[8]; //0x0068
-	class UField* Children; //0x0070
-	char pad_0078[144]; //0x0078
-	int32_t PropertySize; //0x0108
-	char pad_010C[4]; //0x010C
+	class UField* SueprField; //0x00A8
+	class UField* Children; //0x00B0
+	int32_t PropertySize; //0x00B8
+	int32_t MinAlignment; //0x00BC
+	char pad_00C0[64]; //0x00C0
+
 
 
 
@@ -246,14 +244,13 @@ public:
 class UFunction : public UStruct
 {
 public:
-	char pad_0110[24]; //0x0110
-	int16_t ParmsSize; //0x0128
-	char pad_012A[10]; //0x012A
-	int16_t NumParms; //0x0134
-	char pad_0136[2]; //0x0136
-	void* Fun; //0x0138
-	int32_t FunctionFlags; //0x0140
-	char pad_0144[36]; //0x0144
+	char pad_0100[4]; //0x0100
+	uint16_t NumParms; //0x0104
+	uint16_t ParmsSize; //0x0106
+	char pad_0108[20]; //0x0108
+	int32_t FunctionFlags; //0x011C
+	char pad_0120[8]; //0x0120
+	void* Fun; //0x0128
 
 
 
@@ -263,22 +260,22 @@ public:
 class UClass : public UStruct
 {
 public:
-	char pad_0118[480]; //0x0118
+	char pad_0098[360]; //0x0098
+
 
 };
 
 class UProperty : public UField
 {
 public:
-	int32_t ArrayDim; //0x0038
-	int32_t ElementSize; //0x003C
-	FQWord PropertyFlag; //0x0040
-	char pad_0040[16]; //0x0040
-	int32_t offset; //0x0050
-	char pad_0054[4]; //0x0054
-	class UField* NextChildren; //0x0058
-	char pad_0060[24]; //0x0060
-
+	int32_t ArrayDim; //0x00A8
+	int32_t ElementSize; //0x00AC
+	FQWord PropertyFlag;
+	char pad_00B8[4]; //0x00B8
+	int32_t offset; //0x00BC
+	char pad_00C0[8]; //0x00C0
+	class UField* NextChildren; //0x00C8
+	char pad_00D0[24]; //0x00D0
 
 
 

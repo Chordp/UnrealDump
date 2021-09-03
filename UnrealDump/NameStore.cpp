@@ -12,9 +12,9 @@ NameStore& NameStore::GetReference()
 }
 NameStore::NameStore()
 {
-    Names = Process::XeDecryption(Process::Read<ULONG64>((DWORD_PTR)Process::GetBaseModule() + (int)GameInst::GNames));
-    NameSize = Process::XeDecryption(Process::Read<ULONG64>(Names + 0x8));
-    Names = Process::XeDecryption(Process::Read<ULONG64>(Names));
+    Names = Process::Read<ULONG64>((DWORD_PTR)Process::GetBaseModule() + (int)GameInst::GNames);
+    NameSize = 0x100000;//Process::XeDecryption(Process::Read<ULONG64>(Names + 0x8));
+    //Names = Process::XeDecryption(Process::Read<ULONG64>(Names));
 }
 string NameStore::operator[](int id)
 {

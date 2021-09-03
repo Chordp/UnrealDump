@@ -11,10 +11,8 @@
 size_t UEObject::GetIndex() const
 {
 	auto Index = Process::Read<decltype(UObject::Index)>((DWORD_PTR)object.GetPtr() + GetOffsets(UObject, Index));
-	if (!Index)
-		return 0;
 
-	return 	__ROR4__(Index ^ 0x26D9788B, 13) ^ (__ROR4__(Index ^ 0x26D9788B, 13) << 16) ^ 0x4CA18D53;
+	return 	Index;
 
 }
 //---------------------------------------------------------------------------
@@ -22,11 +20,7 @@ UEClass UEObject::GetClass() const
 {
 
 	auto Class = Process::Read<decltype(UObject::Class)>((DWORD_PTR)object.GetPtr() + GetOffsets(UObject, Class));
-	if (!Class)
-		return 0;
-
-	Class = __ROR8__(Class ^ 0x81F28D5735376D9Fui64, 19);
-	return UEClass(reinterpret_cast<UObject*> (Class ^ (Class << 32) ^ 0x350FB0BAD3D6C834i64));
+	return UEClass(Class);
 
 
 }
@@ -35,20 +29,13 @@ UEObject UEObject::GetOuter() const
 {
 	
 	auto Outer =Process::Read<decltype(UObject::Outer)>((DWORD_PTR)object.GetPtr()+ GetOffsets(UObject, Outer));
-	if (!Outer)
-		return 0;
-	Outer = __ROL8__(Outer ^ 0xC2D97262E47DE776ui64, 7);
 	
-	return UEObject(reinterpret_cast<UObject*>(Outer ^ (Outer << 32) ^ 0x1FFDF087E437CB01i64));
+	return UEObject(Outer);
 }
 //---------------------------------------------------------------------------
 std::string UEObject::GetName() const
 {
 	auto index = Process::Read<decltype(UObject::ID)>((DWORD_PTR)object.GetPtr() + GetOffsets(UObject, ID));
-	if (!index)
-		return string();
-
-	index = __ROL4__(index ^ 0x788B26D9, 3) ^ (__ROL4__(index ^ 0x788B26D9, 3) << 16) ^ 0x4CA1C1F2;
 	auto name = NameStore::GetReference().GetName(index);
 
 	auto pos = name.rfind('/');

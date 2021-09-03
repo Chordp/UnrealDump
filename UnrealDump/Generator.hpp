@@ -68,7 +68,7 @@ public:
 
 	string GetGameName()
 	{
-		return "Pubg";
+		return "shabi";
 	}
 protected:
 	std::unordered_map<std::string, std::string> overrideTypes;
